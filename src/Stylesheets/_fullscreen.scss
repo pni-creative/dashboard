@@ -1,0 +1,36 @@
+ button#fullscreen {
+     background: none rgb(255, 255, 255);
+     border: 0px;
+     margin: 10px;
+     padding: 0px;
+     position: absolute;
+     cursor: pointer;
+     user-select: none;
+     border-radius: 2px;
+     height: 40px;
+     width: 40px;
+     box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+     overflow: hidden;
+     bottom: 0px;
+     left: 0px;
+
+     &:focus {
+         outline: none;
+     }
+
+
+
+     &.active {
+         opacity: 0.3;
+         transition: opacity 0.3s ease;
+
+         &:hover {
+            opacity: 1;
+        }
+     }
+
+     img {
+         width: 18px;
+         height: 18px;
+     }
+ }

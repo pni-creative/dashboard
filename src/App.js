@@ -5,7 +5,6 @@ import News from './Components/News'
 import Video from './Components/Video'
 import Poll from './Components/Poll'
 import Weather from './Components/Weather'
-import Traffic from './Components/Traffic'
 import Fullscreen from './Components/Fullscreen'
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
       <News />
       <Poll />
       <Weather />
-      <Traffic />
       <Fullscreen />
     </div>
   );

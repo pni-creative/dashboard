@@ -1,5 +1,6 @@
 import React from 'react'
 import Player from '@vimeo/player';
+import Traffic from './Traffic'
 
 const videoContainerStyle = {
     padding: '56.25% 0 0 0',
@@ -25,7 +26,6 @@ class Video extends React.Component {
 
     getMilliseconds(minutes) {
         let milliseconds = minutes * 60000;
-
         return milliseconds
     }
 
@@ -43,7 +43,7 @@ class Video extends React.Component {
         if(this.state.isMap) {
             setTimeout(()=> {
                 this.setState({isMap: false})
-            }, this.getMilliseconds(.05))
+            }, this.getMilliseconds(5))
         } else {
             let iframe = document.querySelector('iframe');
             let player = new Player(iframe);
@@ -58,13 +58,13 @@ class Video extends React.Component {
         if(this.state.isMap) {
             return (
             <div className="box b">
-                <p>Map!</p>
+                <Traffic />
             </div>
             )
         } else {
             return (
             <div className="box b">
-                <div style={videoContainerStyle}><iframe src="https://player.vimeo.com/video/333592034?autoplay=1&byline=0&portrait=0" style={videoStyle} frameBorder="0" allow="autoplay" allowfullscreen></iframe></div>
+                <div style={videoContainerStyle}><iframe src="https://player.vimeo.com/video/387077496?autoplay=1&byline=0&portrait=0" style={videoStyle} frameBorder="0" allow="autoplay" allowfullscreen></iframe></div>
             </div> 
             )
         }

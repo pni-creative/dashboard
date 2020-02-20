@@ -1,0 +1,36 @@
+.header {
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    align-items: center;
+
+    .timezones {
+        text-align: right;
+
+        .main {
+            font-size: 2rem;
+        }
+
+        .sub {
+            font-size: 1.1rem;
+
+            span {
+                display: inline-block;
+                padding-left: 10px;
+            }
+
+            .time1 {
+                position: relative;
+                padding-right: 10px;
+
+                &::after {
+                    display: inline-block;
+                    content: '';
+                    border-right: 1px solid black;
+                    height: 100%;
+                    position: absolute;
+                    right: 0;
+                }
+            }
+        }
+    }
+}

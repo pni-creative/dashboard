@@ -1,0 +1,35 @@
+.poll {
+    h2 {
+        color: #fff;
+        margin: 15px 0 20px;
+	}
+	
+	p {
+	    color: #fff;
+	}    
+	
+	ul {
+	    list-style: none;
+	    padding: 0;
+	    margin: 0;
+	}
+	
+	.result {
+	    display: none;
+	    height: 35px;
+	    border-radius: 5px;
+	    background-color: #fff;
+	    margin: 5px 0 20px;
+	    justify-content: flex-end;
+	    align-items: center;
+        padding-right: 10px;
+        
+        &.show {
+            display: flex;
+        }
+	}
+	
+	.result-percent {
+	    color: #444;
+	}
+}

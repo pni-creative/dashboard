@@ -11,6 +11,7 @@ class Header extends React.Component {
                 fraTime: "",
                 ausTime: "",
                 isTimeZoneUpdated: false,
+                today: "",
             }        
     }
 
@@ -36,8 +37,17 @@ class Header extends React.Component {
         this.setState({isTimeZoneUpdated: true})
     }
 
-    componentDidMount() {
+    setCurrentDate() {
+        var options = { weekday: 'short', month: 'short', day: 'numeric'};
+        var dateFormat = new Intl.DateTimeFormat('en-US', options);
+        let fullDate = dateFormat.format(new Date())
+
+        this.setState({today: fullDate})
+    }
+
+    componentDidMount() {       
         this.setTime();
+        this.setCurrentDate();
     }
 
     componentDidUpdate(prevProps) {
@@ -55,8 +65,8 @@ class Header extends React.Component {
                 </div>
                 <div className="timezones">
                     <div className="main">
-                        <span>Vancouver {this.state.vanTime}</span>
-                        <span></span>
+                        <span className="time">Vancouver {this.state.vanTime}</span>
+                        <span className="date">{this.state.today}</span>
                     </div>
                     <div className="sub">
                         <span className="time1">Austin {this.state.ausTime}</span>

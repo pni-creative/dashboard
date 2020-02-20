@@ -34,3 +34,19 @@
         }
     }
 }
+
+@media (prefers-color-scheme: dark) {
+
+    .header {
+        .timezones {
+            .sub {
+                .time1 {
+                    &::after {
+                        border-right: 1px solid #eaeaea;
+                    }
+                }
+            }
+        }
+    }
+  
+  }

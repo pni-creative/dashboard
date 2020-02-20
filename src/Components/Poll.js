@@ -11,7 +11,8 @@ class Poll extends React.Component {
           optionA: "😀",
           optionB: "😫",
           percentA: 0,
-          percentB: 0
+          percentB: 0,
+          votesTotal: 0
         }
     }
 
@@ -42,25 +43,38 @@ class Poll extends React.Component {
             
             this.setState({
                 percentA: (countA / (countA + countB)) * 100, 
-                percentB: (countB / (countA + countB)) * 100
+                percentB: (countB / (countA + countB)) * 100,
+                votesTotal: countA + countB
             });
         }); 
     }
     
     render() {
+        const aStyle = {width: `${this.state.percentA}%`}
+        const bStyle = {width: `${this.state.percentB}%`}
         return (
-            <div className="box d">
+            <div className="box d poll">
                 <div className="title">
-                    <p>Poll</p>
+                    <h1>Poll</h1>
                 </div>
-                <p>{this.state.question}</p>
+                <h2>{this.state.question}</h2>
                 <ul>
-                    <li>{this.state.optionA}</li>
-                    <li>{this.state.optionB}</li>
+                    <li>
+                        <span className="option">{this.state.optionA}</span>
+                        <span className={`result ${this.state.percentA ? 'show' : null}`} style={aStyle}>
+                            <span className="result-percent">{this.state.percentA}%</span>
+                        </span>
+                    </li>
+                    <li>
+                        <span className="option">{this.state.optionB}</span>
+                        <span className={`result ${this.state.percentB ? 'show' : null}`} style={bStyle}>
+                            <span className="result-percent">{this.state.percentB}%</span>
+                        </span>
+                    </li>
                 </ul>
-                <p>Text your mood to 604-373-3PNI (764)</p>
-                <pre>{this.state.percentA}%</pre>
-                <pre>{this.state.percentB}%</pre>
+                <p>Total votes: <strong>{this.state.votesTotal}</strong></p>
+                <p>Text your mood to <strong>604-373-3PNI (764)</strong></p>
+
             </div>
         )
     }

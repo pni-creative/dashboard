@@ -43,7 +43,7 @@ class Weather extends React.Component {
             .then(res => res.json())
             .then(
                 (result) => {
-                    console.log(result);
+                    //console.log(result);
                     this.setState({
                         isForecast: true,
                         forecast_1: result.list[0],
@@ -59,6 +59,7 @@ class Weather extends React.Component {
             )
     }
 
+    //convert time and date
     convert(unixtimestamp) {
         // Months array
         let months_arr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -85,13 +86,14 @@ class Weather extends React.Component {
         // let seconds = "0" + date.getSeconds();
 
         // Display date time in MM dd, yyyy h:m format
+        //TODO : split date and time
         let convdataTime = month + ' ' + day + ', ' + year + ' ' + hours + ':' + minutes.substr(-2);
         return convdataTime;
     }
 
     componentDidMount() {
         //refresh data every 2 hours
-        //this.intervalId = setInterval(() => this.loadData(), 2 * 60 * 60 * 1000);
+        this.intervalId = setInterval(() => this.loadData(), 2 * 60 * 60 * 1000);
         //load current weather
         this.loadData(); 
         //load future weather
@@ -126,33 +128,34 @@ class Weather extends React.Component {
 
             return (
 
-                <div className="box e">
+                <div className="box e weather">
                     <div className="title">
                         <p>Weather</p>
                     </div>
 
-                    <div className="current">
-                            <p>now</p>
-                            <img src={'http://openweathermap.org/img/wn/' + items.weather[0].icon + '.png'} alt="" />
+                    <div className="weather-container">
+                        <div className="current">
+                            <p className="date">now</p>
+                            <img src={'http://openweathermap.org/img/wn/' + items.weather[0].icon + '@2x.png'} alt="" />
 
                             <p>{currentTemp}&deg;</p>
-                            <p>{items.weather[0].description}</p>    
-                    </div>
+                            <p className="desc">{items.weather[0].description}</p>
+                        </div>
 
-                    <div className="forecast-1">
-                            <img src={'http://openweathermap.org/img/wn/' + forecast_1.weather[0].icon + '.png'} alt="" />
-
-                    <p>{this.convert(forecast_1.dt)}</p>
+                        <div className="forecast-1">
+                            <p className="date">{this.convert(forecast_1.dt)}</p>
+                            <img src={'http://openweathermap.org/img/wn/' + forecast_1.weather[0].icon + '@2x.png'} alt="" />
                             <p>{Math.round(forecast_1.main.temp)}&deg;</p>
-                    </div>
+                            <p className="desc">{forecast_1.weather[0].description}</p>   
+                        </div>
 
-                    <div className="forecast-2">
-                            <img src={'http://openweathermap.org/img/wn/' + forecast_2.weather[0].icon + '.png'} alt="" />
-                    
-                    <p>{this.convert(forecast_2.dt)}</p>
-                            <p>{Math.round(forecast_2.main.temp)}&deg;</p>
-                    </div>
-
+                        <div className="forecast-2">
+                            <p className="date">{this.convert(forecast_2.dt)}</p>
+                            <img src={'http://openweathermap.org/img/wn/' + forecast_2.weather[0].icon + '@2x.png'} alt="" />
+                            <p>{Math.round(forecast_2.main.temp)}&deg;</p> 
+                            <p className="desc">{forecast_2.weather[0].description}</p>                   
+                        </div>
+                    </div>  
                 </div>
 
             );

@@ -20,7 +20,6 @@ class Poll extends React.Component {
     
         // Firebase configuration
         const firebaseConfig = {
-            
         };
   
         // Initialize Firebase
@@ -61,8 +60,8 @@ class Poll extends React.Component {
             });
             
             this.setState({
-                percentA: (countA / (countA + countB)) * 100, 
-                percentB: (countB / (countA + countB)) * 100,
+                percentA: Math.floor((countA / (countA + countB)) * 100), 
+                percentB: Math.floor((countB / (countA + countB)) * 100),
                 votesTotal: countA + countB
             });
         }); 

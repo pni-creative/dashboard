@@ -35,7 +35,7 @@ body,html {
 }
 
 .a {
-  grid-column: col1-start / col6-end;
+  grid-column: col1-start / col7-end;
   grid-row: row1-start ;
 }
 
@@ -45,18 +45,18 @@ body,html {
 }
 
 .c {
-  grid-column: col4-start / col6-end;
+  grid-column: col4-start / col7-end;
   grid-row: row2-start ;
 }
 
 .d {
-  grid-column: col1-start / col3-start;
+  grid-column: col1-start / col5-start;
   grid-row: row3-start ;
   background: linear-gradient(to bottom, #26de81, #21b56a);
 }
 
 .e {
-  grid-column: col3-start / col5-start;
+  grid-column: col5-start / col7-end;
   grid-row: row3-start ;
   background: linear-gradient(to bottom, #fa8231, #ff9751);
 }

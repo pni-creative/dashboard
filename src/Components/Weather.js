@@ -68,13 +68,13 @@ class Weather extends React.Component {
         let date = new Date(unixtimestamp * 1000);
 
         // Year
-        let year = date.getFullYear();
+        //let year = date.getFullYear();
 
         // Month
-        let month = months_arr[date.getMonth()];
+        //let month = months_arr[date.getMonth()];
 
         // Day
-        let day = date.getDate();
+        //let day = date.getDate();
 
         // Hours
         let hours = date.getHours();

@@ -8,17 +8,24 @@
     min-height: 500px;
 }
 
-.map-title {
-    margin: 0;
-    font-size: 24px;
-    line-height: 40px;
+#map-iframe-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    background-color: #f3f3f3;
     color: transparentize(#001f3f, 0.6);
-}
 
-#map-iframe-mask {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 50px;
-  background-color: #f3f3f3;
+    .map-title {
+        font-size: 24px;
+        margin: 0;
+    }
+
+    .map-time {
+        font-size: 14px;
+    }
 }

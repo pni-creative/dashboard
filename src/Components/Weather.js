@@ -86,8 +86,7 @@ class Weather extends React.Component {
         // let seconds = "0" + date.getSeconds();
 
         // Display date time in MM dd, yyyy h:m format
-        //TODO : split date and time
-        let convdataTime = month + ' ' + day + ', ' + year + ' ' + hours + ':' + minutes.substr(-2);
+        let convdataTime = hours + ':' + minutes.substr(-2);
         return convdataTime;
     }
 

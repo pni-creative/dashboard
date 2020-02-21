@@ -92,7 +92,13 @@ class Weather extends React.Component {
 
     componentDidMount() {
         //refresh data every 2 hours
-        this.intervalId = setInterval(() => this.loadData(), 2 * 60 * 60 * 1000);
+        this.intervalId = setInterval(() => 
+            this.loadData(), 2 * 60 * 60 * 10000
+        );
+        this.intervalForecast = setInterval(() => 
+            this.loadFuturedata(), 2 * 60 * 60 * 10000  
+        );
+
         //load current weather
         this.loadData(); 
         //load future weather
@@ -101,6 +107,7 @@ class Weather extends React.Component {
 
     componentWillUnmount() {
         clearInterval(this.intervalId)
+        clearInterval(this.intervalForecast)
     }
 
     render() {
